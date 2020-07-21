@@ -48,13 +48,10 @@
                   class="mb-3"
                   placeholder="Email"
                   addon-left-icon="ni ni-email-83"
-                >
-                </base-input>
+                ></base-input>
 
                 <ul class="form-errors">
-                  <li v-for="(error, index) in email.errors" :key="index">
-                    {{ error }}
-                  </li>
+                  <li v-for="(error, index) in email.errors" :key="index">{{ error }}</li>
                 </ul>
 
                 <base-input
@@ -64,22 +61,15 @@
                   type="password"
                   placeholder="Password"
                   addon-left-icon="ni ni-lock-circle-open"
-                >
-                </base-input>
+                ></base-input>
 
                 <ul class="form-errors">
-                  <li v-for="(error, index) in password.errors" :key="index">
-                    {{ error }}
-                  </li>
+                  <li v-for="(error, index) in password.errors" :key="index">{{ error }}</li>
                 </ul>
 
-                <base-checkbox>
-                  Remember me
-                </base-checkbox>
+                <base-checkbox>Remember me</base-checkbox>
                 <div class="text-center">
-                  <base-button type="submit" @click="submitForm" class="my-4"
-                    >Sign In</base-button
-                  >
+                  <base-button type="submit" @click="submitForm" class="my-4">Sign In</base-button>
                 </div>
               </form>
             </template>
@@ -118,7 +108,7 @@ export default {
   }),
   methods: {
     validEmail: function(email) {
-      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const re = new RegExp("[^@]+@[^.]+..+");
       return re.test(email);
     },
     isValidForm() {
